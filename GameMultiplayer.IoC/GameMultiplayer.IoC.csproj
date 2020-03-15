@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameMultiplayer.App\GameMultiplayer.App.csproj" />
+    <ProjectReference Include="..\GameMultiplayer.Core\GameMultiplayer.Core.csproj" />
+    <ProjectReference Include="..\GameMultiplayer.Data\GameMultiplayer.Data.csproj" />
+  </ItemGroup>
+
+</Project>
