@@ -33,9 +33,8 @@ namespace GameMultiplayer.Core.Services
         }
 
         public Player MovePlayer(Keys key, Player player)
-        {
-            if (key != 0)
-                _ = (Player)player.GetType().GetMethod(key.ToString()).Invoke(player, null);
+        {        
+            player.GetType().GetMethod(key.ToString()).Invoke(player, null);
 
             return player;
         }
