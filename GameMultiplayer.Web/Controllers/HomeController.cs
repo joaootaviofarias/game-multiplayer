@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using GameMultiplayer.App.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameMultiplayer.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IGameAppService _gameAppService;
+        public HomeController(IGameAppService gameAppService)
         {
-            return View();
+            _gameAppService = gameAppService;
         }
 
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
+            var mapSize = _gameAppService.GetMapSize();
+
+            ViewBag.Width = mapSize.Item1;
+            ViewBag.Height = mapSize.Item2;
             return View();
-        }
-   
+        } 
     }
 }

@@ -12,8 +12,8 @@ namespace GameMultiplayer.Core.Entities
         {
             PlayerId = Guid.NewGuid();
             ConnectionId = connId;
-            PlayerX = new Random().Next(0, MapConfig.SizeX);
-            PlayerY = new Random().Next(0, MapConfig.SizeY);
+            PlayerX = new Random().Next(0, MapConfig.Width);
+            PlayerY = new Random().Next(0, MapConfig.Height);
         }
 
         // Ef
@@ -38,7 +38,7 @@ namespace GameMultiplayer.Core.Entities
 
         public void Down()
         {
-            if (PlayerY < MapConfig.SizeY - PlayerConfig.PlayerSizeX)
+            if (PlayerY < MapConfig.Height - PlayerConfig.PlayerSizeX)
                 PlayerY += 1;
         }
 
@@ -50,7 +50,7 @@ namespace GameMultiplayer.Core.Entities
 
         public void Right()
         {
-            if (PlayerX < MapConfig.SizeX - PlayerConfig.PlayerSizeY)
+            if (PlayerX < MapConfig.Width - PlayerConfig.PlayerSizeY)
                 PlayerX += 1;
         }
     }

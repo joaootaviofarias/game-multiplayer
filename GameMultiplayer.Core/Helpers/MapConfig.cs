@@ -6,7 +6,7 @@ namespace GameMultiplayer.Core.Helpers
 {
     public static class MapConfig
     {
-        public static int SizeX { get => 10; }
-        public static int SizeY { get => 10; }
+        public static int Width { get => 40; }
+        public static int Height { get => 40; }
     }
 }

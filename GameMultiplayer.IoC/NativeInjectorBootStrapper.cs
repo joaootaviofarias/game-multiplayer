@@ -16,10 +16,11 @@ namespace GameMultiplayer.IoC
         public static void RegisterServices(IServiceCollection services)
         {
             //appService
+            services.AddScoped<IGameAppService, GameAppService>();
             services.AddScoped<IPlayerAppService, PlayerAppService>();
             services.AddScoped<IFruitAppService, FruitAppService>();
 
-            //services
+            //service
             services.AddScoped<IPlayerService, PlayerService>();
             services.AddScoped<IFruitService, FruitService>();
 

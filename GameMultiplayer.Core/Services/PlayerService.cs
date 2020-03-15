@@ -3,6 +3,7 @@ using GameMultiplayer.Core.Enum;
 using GameMultiplayer.Core.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GameMultiplayer.Core.Services
@@ -62,7 +63,8 @@ namespace GameMultiplayer.Core.Services
 
         public IEnumerable<Player> GetAll()
         {
-            return _repository.GetAll();
+            var players = _repository.GetAll().ToList().OrderByDescending(p => p.Pontos);
+            return players;
         }
     }
 }

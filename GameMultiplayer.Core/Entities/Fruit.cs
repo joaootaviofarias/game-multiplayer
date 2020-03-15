@@ -10,8 +10,8 @@ namespace GameMultiplayer.Core.Entities
         public Fruit()
         {
             FruitId = Guid.NewGuid();
-            FruitX = new Random().Next(0, MapConfig.SizeX);
-            FruitY = new Random().Next(0, MapConfig.SizeY);
+            FruitX = new Random().Next(0, MapConfig.Width);
+            FruitY = new Random().Next(0, MapConfig.Height);
         }
 
         public Guid FruitId { get; protected set; }

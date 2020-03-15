@@ -22,15 +22,13 @@ namespace GameMultiplayer.Web.Hubs
         public override Task OnConnectedAsync()
         {
             _playerAppService.Add(Context.ConnectionId);
-            Clients.Client(Context.ConnectionId).SendAsync("ConnectionId", Context.ConnectionId);
-            Clients.All.SendAsync("Render", _playerAppService.GetAll(), _fruitAppService.GetAll());
             return base.OnConnectedAsync();
         }
 
         public override Task OnDisconnectedAsync(Exception exception)
         {
             _playerAppService.Remove(Context.ConnectionId);
-            Clients.All.SendAsync("Render", _playerAppService.GetAll(), _fruitAppService.GetAll());
+            RenderPlayers();
             return base.OnDisconnectedAsync(exception);
         }
 
@@ -42,8 +40,12 @@ namespace GameMultiplayer.Web.Hubs
 
         public async Task RenderPlayers()
         {          
-            await Clients.Client(Context.ConnectionId).SendAsync("ConnectionId", Context.ConnectionId);
             await Clients.All.SendAsync("Render", _playerAppService.GetAll(), _fruitAppService.GetAll());
+        }
+
+        public string GetConnectionId()
+        {
+            return Context.ConnectionId;
         }
 
     }
