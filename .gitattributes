@@ -61,3 +61,13 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+##############################################################################
+#Linguist 
+##############################################################################
+bootstrap.js linguist-detectable=false
+bootstrap*.css linguist-detectable=false
+jquery*.js linguist-detectable=false
+additional-methods.js linguist-detectable=false
+signalr.js linguist-detectable=false
+
